@@ -1,0 +1,12 @@
+<div class="all-messages">
+  <%= render :template => 'messages/index', :locals => { :@messages => @connection.messages } %>
+</div>
+<div class="new-message">
+  <%= render :template => 'messages/new', :locals => { :@message => @connection.messages.build } %>
+</div>
+<div class="add-user">
+	<%= form_tag add_users_connection_path(@connection.id), :method => :put do %>
+    <%= text_field_tag :email %>
+    <%= submit_tag :add %>
+  <% end %>
+</div>

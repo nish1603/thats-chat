@@ -1,0 +1,9 @@
+<% @messages.each do |message| %>
+  <% if message.sender == current_user %>
+    me:
+  <% else %> 
+    <%= message.sender.email %>
+  <% end %>
+  <%= message.text %>
+<% end %>
+<br />

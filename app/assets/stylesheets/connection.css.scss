@@ -1,0 +1,18 @@
+.current-connection, .left-connections, .new-connection {
+	display: table-cell;
+	float: left;
+	width: 30%;
+	height: 500px;
+	margin: 0px 5px;
+	border: 2px solid black;
+}
+
+.current-connection {
+  .all-messages {
+    height: 350px;
+  }
+
+  .new-message {
+    height: 100px;
+  }
+}

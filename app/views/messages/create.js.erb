@@ -1,0 +1,1 @@
+$('div.all-messages').html("<%=j render :template => 'messages/index', :locals => { :@messages => @connection.messages.reload } %>");

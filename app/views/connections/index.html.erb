@@ -1,0 +1,20 @@
+<div class="left-connections">
+  <% @connections.each do |connection| %>
+    <div class="last-message">
+      <% if connection.last_message_sender == current_user %>
+        me:
+      <% else %> 
+        <%= connection.last_message_sender.try(:email) %>
+      <% end %>
+      <%= link_to connection.last_message.try(:text) || 'no message', connection_path(connection.id), :remote => true %>
+    </div>
+  <% end %>
+</div>
+
+<div class="current-connection">
+</div>
+
+<div class="new-connection">
+  <%= link_to 'Start New Connection', connections_path, :method => :post, :remote => true %>
+</div>
+
