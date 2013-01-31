@@ -10,11 +10,6 @@ class ConnectionsController < ApplicationController
     @connection = Connection.includes(:messages).where(:id => params[:id]).first
   end
 
-  def add_users
-    @connection = Connection.where(:id => params[:connection_id]).first
-    @connection.users << User.where(:email => params[:email]).first
-  end
-
   def create
     respond_to do |format|
       if current_user.connections.create
@@ -25,9 +20,9 @@ class ConnectionsController < ApplicationController
   end
 
   def add_users
-    @connection = Connection.where(:id => params[:connection_id]).first
+    @connection = Connection.where(:id => params[:id]).first
     @user = User.where(:email => params[:email]).first
-    @connection.users << @user
+    @connection.users << @user if @user
 
     respond_to do |format|
       format.html { redirect_to :back }
